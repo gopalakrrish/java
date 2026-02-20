@@ -1,0 +1,1 @@
+This repository contains multiple Java programs organized into subfolders. Each subfolder focuses on a specific topic, concept, or project — such as data structures, algorithms, object-oriented programming, and more.
