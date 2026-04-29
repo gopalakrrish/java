@@ -13,7 +13,7 @@ public class LinkedListDemo {
         list.addLast(40);
         list.addLast(50);
 //        System.out.println(list.contains(30));
-//        list.my_removeLast();
+//        list.removeLast();
 //        System.out.println(list.contains(30));
 //        System.out.println(list);
 //        var array = list.toArray();

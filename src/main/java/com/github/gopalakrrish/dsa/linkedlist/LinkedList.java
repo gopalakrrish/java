@@ -18,7 +18,7 @@ public class LinkedList {
     public void addLast(int item) {
         var node = new Node(item);
 
-        if(first==null)
+        if(isEmpty())
             first = last = node;
         else {
             last.next = node;
@@ -30,17 +30,18 @@ public class LinkedList {
 
     public void addFirst(int item) {
         var node = new Node(item);
-        if(first==null)
+        if(isEmpty())
             first = last = node;
         else {
             node.next = first;
             first = node;
-//            second = first;
-//            first = node;
-//            first.next = second;
         }
 
         size++;
+    }
+
+    private boolean isEmpty() {
+        return first == null;
     }
 
     public int indexOf(int item) {
@@ -59,46 +60,35 @@ public class LinkedList {
     }
 
     public void removeFirst() {
-        if (first==null)
+        if (isEmpty())
             throw new NoSuchElementException();
-        if (first==last)
+
+        if (first==last) {
             first = last = null;
-
-        else {
-            var second = first.next;
-            first.next = null;
-            first = second;
-
-//        second=first;
-//        first=first.next;
-//        second.next=null;
+            return;
         }
+
+        var second = first.next;
+        first.next = null;
+        first = second;
 
         size--;
     }
 
-    public void my_removeLast() {
-        if (first==null)
+    public void removeLast() {
+        if (isEmpty())
             throw new NoSuchElementException();
-        if (first==last)
+
+        if (first==last) {
             first = last = null;
-
-        else {
-            var current=first;
-            while (current.next!=last){
-                current = current.next;
-            }
-            last = current;
-            last.next = null;
-
-//            current.next = null;
-//            last = current;
+            return;
         }
+
+        last = getPrevious(last);
+        last.next = null;
 
         size--;
     }
-
-
 
     public int size() {
         return size;
