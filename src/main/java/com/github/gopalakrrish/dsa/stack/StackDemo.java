@@ -1,25 +1,32 @@
 package com.github.gopalakrrish.dsa.stack;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class StackDemo {
     public static void main(String[] args) {
-//        String str = "abcde";
-//
-//        var reverser = new StringReverser();
-//        var str_reversed = reverser.reverse(str);
-//        System.out.println(str_reversed);
+        demoStringReverser();
+        demoArrayStack();
+        demoBalancedExpression();
+    }
 
-//        String str = "((1+2))<>";
-//        var exp = new BalancedExpression_ref2();
-//        var result = exp.isBalanced(str);
-//        System.out.println(result);
+    public static void demoStringReverser() {
+        String str = "abcde";
 
+        var reverser = new StringReverser();
+        var str_reversed = reverser.reverse(str);
+        System.out.println(str_reversed);
+    }
+
+    public static void demoArrayStack() {
         var arrayStack = new ArrayStack();
         arrayStack.push(10);
         arrayStack.push(20);
         System.out.println(arrayStack);
+    }
 
+    public static void demoBalancedExpression() {
+        String str = "((1+2))<>";
+        var exp = new BalancedExpressionV2();
+        var result = exp.isBalanced(str);
+        System.out.println(result);
     }
 
 }

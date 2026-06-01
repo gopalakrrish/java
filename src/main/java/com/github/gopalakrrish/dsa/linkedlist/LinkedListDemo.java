@@ -5,12 +5,12 @@ import java.util.Arrays;
 
 public class LinkedListDemo {
     public static void main(String[] args) {
-//        singlyLinkedListDemo();
-        doublyLinkedListDemo();
+        demoSinglyLinkedList();
+        demoDoublyLinkedList();
 
     }
 
-    public static void singlyLinkedListDemo() {
+    public static void demoSinglyLinkedList() {
         var list = new LinkedList();
         list.addLast(10);
         list.addLast(20);
@@ -29,7 +29,7 @@ public class LinkedListDemo {
         System.out.println(Arrays.toString(array));
     }
 
-    public static void doublyLinkedListDemo() {
+    public static void demoDoublyLinkedList() {
         var list = new DoublyLinkedList();
         list.addFirst(20);
         list.addFirst(30);

@@ -1,10 +1,9 @@
 package com.github.gopalakrrish.dsa.dynamicarray;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class DynamicArrayDemo {
+
     public static void main(String[] args) {
-        Array numbers = new Array(3);
+        DynamicArray numbers = new DynamicArray(3);
         numbers.insert(10);
         numbers.insert(20);
         numbers.insert(30);
@@ -17,4 +16,5 @@ public class DynamicArrayDemo {
         System.out.println(numbers);
         System.out.println("index of 30 is " + numbers.indexOf(30));
     }
+
 }

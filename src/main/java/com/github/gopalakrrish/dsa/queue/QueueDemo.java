@@ -2,6 +2,14 @@ package com.github.gopalakrrish.dsa.queue;
 
 public class QueueDemo {
     public static void main(String[] args) {
+        demoPriorityQueue();
+
+    }
+
+    public void demoArrayQueue() {
+    }
+
+    public static void demoPriorityQueue() {
         var queue = new PriorityQueue();
         queue.add(5);
         System.out.println(queue);
@@ -19,4 +27,8 @@ public class QueueDemo {
         while (!queue.isEmpty())
             System.out.println(queue.remove());
     }
+
+    public void demoQueueWithTwoStacks() {
+    }
+
 }

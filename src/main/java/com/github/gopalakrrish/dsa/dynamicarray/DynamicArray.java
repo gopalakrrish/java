@@ -2,10 +2,10 @@ package com.github.gopalakrrish.dsa.dynamicarray;
 
 import java.util.Arrays;
 
-public class Array {
+public class DynamicArray {
     int count = 0;
     int[] array;
-    public Array(int length) {
+    public DynamicArray(int length) {
         array = new int[length];
     }
     
