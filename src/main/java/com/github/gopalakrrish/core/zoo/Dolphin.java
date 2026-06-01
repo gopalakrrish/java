@@ -1,6 +1,8 @@
 package com.github.gopalakrrish.core.zoo;
 
-public class Dolphin extends Animal implements Swim {
+import java.io.Serializable;
+
+public class Dolphin extends Animal implements Swim, Serializable {
     String color;
     int swimmingSpeed;
 
@@ -39,4 +41,11 @@ public class Dolphin extends Animal implements Swim {
         System.out.println("Dolphin: I am swimming at the speed " + swimmingSpeed);
     }
 
+    @Override
+    public String toString() {
+        return "Dolphin{" +
+                "color='" + color + '\'' +
+                ", swimmingSpeed=" + swimmingSpeed +
+                '}';
+    }
 }

@@ -1,6 +1,8 @@
 package com.github.gopalakrrish.core.zoo;
 
-public class Tiger extends Animal implements Walk {
+import java.io.Serializable;
+
+public class Tiger extends Animal implements Walk, Serializable {
     int numberOfStripes;
     int speed;
     int soundLevel;
@@ -43,4 +45,12 @@ public class Tiger extends Animal implements Walk {
         System.out.println("Tiger: I am moving at the speed " + speed);
     }
 
+    @Override
+    public String toString() {
+        return "Tiger{" +
+                "numberOfStripes=" + numberOfStripes +
+                ", speed=" + speed +
+                ", soundLevel=" + soundLevel +
+                '}';
+    }
 }
