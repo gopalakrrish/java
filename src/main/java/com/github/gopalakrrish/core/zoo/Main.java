@@ -10,7 +10,6 @@ public class Main {
 
         int continueOuterLoop = 1  ;
 
-
         Tiger tigerObject = new Tiger();
 
         Dolphin dolphinObject = new Dolphin();
@@ -129,34 +128,60 @@ public class Main {
     }
 
     private static void writeObjectsToFile(Tiger tiger, Penguin penguin, Dolphin dolphin) {
-        try {
-            ObjectOutputStream oosTiger = new ObjectOutputStream(new FileOutputStream("tiger.txt"));
-            ObjectOutputStream oosPenguin = new ObjectOutputStream(new FileOutputStream("penguin.txt"));
-            ObjectOutputStream oosDolphin = new ObjectOutputStream(new FileOutputStream("dolphin.txt"));
-            oosTiger.writeObject(tiger);
-            oosPenguin.writeObject(penguin);
-            oosDolphin.writeObject(dolphin);
+
+        try (
+                ObjectOutputStream tigerOut =
+                        new ObjectOutputStream(
+                                new FileOutputStream("tiger.ser"));
+
+                ObjectOutputStream penguinOut =
+                        new ObjectOutputStream(
+                                new FileOutputStream("penguin.ser"));
+
+                ObjectOutputStream dolphinOut =
+                        new ObjectOutputStream(
+                                new FileOutputStream("dolphin.ser"))
+        ) {
+
+            tigerOut.writeObject(tiger);
+            penguinOut.writeObject(penguin);
+            dolphinOut.writeObject(dolphin);
+
             System.out.println("Animal state saved successfully.");
+
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Failed to save animals: " + e.getMessage());
         }
     }
 
     private static void readObjectsFromFile() {
-        try {
-            ObjectInputStream oisTiger = new ObjectInputStream(new FileInputStream("tiger.txt"));
-            ObjectInputStream oisPenguin = new ObjectInputStream(new FileInputStream("penguin.txt"));
-            ObjectInputStream oisDolphin = new ObjectInputStream(new FileInputStream("dolphin.txt"));
-            Tiger tiger = (Tiger) oisTiger.readObject();
-            Penguin penguin = (Penguin) oisPenguin.readObject();
-            Dolphin dolphin = (Dolphin) oisDolphin.readObject();
-            System.out.println("Tiger data retrieved from file: " + tiger.toString());
-            System.out.println("Penguin data retrieved from file: " + penguin.toString());
-            System.out.println("Dolphin data retrieved from file:  " + dolphin.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+
+        try (
+                ObjectInputStream tigerIn =
+                        new ObjectInputStream(
+                                new FileInputStream("tiger.ser"));
+
+                ObjectInputStream penguinIn =
+                        new ObjectInputStream(
+                                new FileInputStream("penguin.ser"));
+
+                ObjectInputStream dolphinIn =
+                        new ObjectInputStream(
+                                new FileInputStream("dolphin.ser"))
+        ) {
+
+            Tiger tiger = (Tiger) tigerIn.readObject();
+
+            Penguin penguin = (Penguin) penguinIn.readObject();
+
+            Dolphin dolphin = (Dolphin) dolphinIn.readObject();
+
+            System.out.println(tiger);
+            System.out.println(penguin);
+            System.out.println(dolphin);
+
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Failed to load animals: " + e.getMessage());
         }
     }
 
