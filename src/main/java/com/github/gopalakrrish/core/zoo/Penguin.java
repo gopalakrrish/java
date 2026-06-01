@@ -1,6 +1,7 @@
 package com.github.gopalakrrish.core.zoo;
 
 import java.io.Serializable;
+import java.util.Scanner;
 
 public class Penguin extends Animal implements Walk, Swim, Serializable {
     boolean isSwimming;
@@ -54,6 +55,40 @@ public class Penguin extends Animal implements Walk, Swim, Serializable {
     @Override
     public void walking() {
         System.out.println("Penguin: I am walking at the speed " + walkSpeed + " mph");
+    }
+
+    @Override
+    public void setProperties(Scanner keyboard) {
+
+        System.out.println("Is the penguin swimming (true/false):");
+        setSwimming(keyboard.nextBoolean());
+
+        System.out.println("Enter the walk speed:");
+        setWalkSpeed(keyboard.nextInt());
+
+        System.out.println("Enter the swim speed:");
+        setSwimSpeed(keyboard.nextInt());
+    }
+
+    @Override
+    public void displayProperties() {
+
+        System.out.println("The characteristics of the " + getNameOfAnimal() + ":");
+        System.out.println("Age: " + getAge());
+        System.out.println("Height: " + getHeight());
+        System.out.println("Weight: " + getWeight());
+        System.out.println("Walking Speed: " + getWalkSpeed());
+        System.out.println("Swimming Speed: " + getSwimSpeed());
+    }
+
+    @Override
+    public void displayMovement() {
+
+        if (isSwimming()) {
+            swimming();
+        } else {
+            walking();
+        }
     }
 
     @Override

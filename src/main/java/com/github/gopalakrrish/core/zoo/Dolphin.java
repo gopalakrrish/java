@@ -1,6 +1,7 @@
 package com.github.gopalakrrish.core.zoo;
 
 import java.io.Serializable;
+import java.util.Scanner;
 
 public class Dolphin extends Animal implements Swim, Serializable {
     String color;
@@ -40,6 +41,35 @@ public class Dolphin extends Animal implements Swim, Serializable {
     public void swimming() {
         System.out.println("Dolphin: I am swimming at the speed " + swimmingSpeed);
     }
+
+    @Override
+    public void setProperties(Scanner keyboard) {
+
+        keyboard.nextLine();
+
+        System.out.println("Enter the color of the dolphin:");
+        setColor(keyboard.nextLine());
+
+        System.out.println("Enter the speed of the dolphin:");
+        setSwimmingSpeed(keyboard.nextInt());
+    }
+
+    @Override
+    public void displayProperties() {
+
+        System.out.println("The characteristics of the " + getNameOfAnimal() + ":");
+        System.out.println("Age: " + getAge());
+        System.out.println("Height: " + getHeight());
+        System.out.println("Weight: " + getWeight());
+        System.out.println("Color: " + getColor());
+        System.out.println("Speed: " + getSwimmingSpeed());
+    }
+
+    @Override
+    public void displayMovement() {
+        swimming();
+    }
+
 
     @Override
     public String toString() {

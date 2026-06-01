@@ -1,5 +1,7 @@
 package com.github.gopalakrrish.core.zoo;
 
+import java.util.Scanner;
+
 abstract public class Animal implements Eat {
 
     private String nameOfAnimal;
@@ -55,6 +57,17 @@ abstract public class Animal implements Eat {
     @Override
     public void eatingFood() {
         System.out.println("The animal: " + nameOfAnimal + " is eating.");
+    }
+
+    public abstract void setProperties(Scanner keyboard);
+
+    public abstract void displayProperties();
+
+    public abstract void displayMovement();
+
+    public void displayEating() {
+        eatingFood();
+        eatingCompleted();
     }
 
 }
