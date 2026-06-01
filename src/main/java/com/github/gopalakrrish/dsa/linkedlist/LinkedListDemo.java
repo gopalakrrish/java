@@ -2,10 +2,15 @@ package com.github.gopalakrrish.dsa.linkedlist;
 
 import java.util.Arrays;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class LinkedListDemo {
     public static void main(String[] args) {
+//        singlyLinkedListDemo();
+        doublyLinkedListDemo();
+
+    }
+
+    public static void singlyLinkedListDemo() {
         var list = new LinkedList();
         list.addLast(10);
         list.addLast(20);
@@ -22,5 +27,12 @@ public class LinkedListDemo {
         list.reverse();
         var array = list.toArray();
         System.out.println(Arrays.toString(array));
+    }
+
+    public static void doublyLinkedListDemo() {
+        var list = new DoublyLinkedList();
+        list.addFirst(20);
+        list.addFirst(30);
+        list.removeLast();
     }
 }
